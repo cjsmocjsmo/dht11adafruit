@@ -1,0 +1,16 @@
+[Unit]
+Description=DHT11 Adafruit Sensor Service
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=picam
+Group=picam
+WorkingDirectory=/home/picam/dht11adaf
+ExecStart=/bin/bash /home/picam/dht11adaf/run.sh
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

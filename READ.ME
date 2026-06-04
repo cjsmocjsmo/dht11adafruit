@@ -1,0 +1,78 @@
+DHT11 Adafruit Service Setup and Usage
+
+This guide explains how to install and manage the dht11adaf systemd service.
+
+Prerequisites
+- The project is located at /home/picam/dht11adaf
+- The service file is at /home/picam/dht11adaf/dht11adaf.service
+- The run script is at /home/picam/dht11adaf/run.sh
+
+1) Copy the service file into systemd
+Command:
+  sudo cp /home/picam/dht11adaf/dht11adaf.service /etc/systemd/system/
+
+What it does:
+- Installs your custom service definition where systemd can load it.
+
+2) Reload systemd after adding or changing a service file
+Command:
+  sudo systemctl daemon-reload
+
+What it does:
+- Tells systemd to re-scan unit files so your latest changes are recognized.
+
+3) Enable the service at boot
+Command:
+  sudo systemctl enable dht11adaf.service
+
+What it does:
+- Configures the service to start automatically on every system restart.
+
+4) Start the service now
+Command:
+  sudo systemctl start dht11adaf.service
+
+What it does:
+- Starts the service immediately without waiting for a reboot.
+
+5) Check current service status
+Command:
+  sudo systemctl status dht11adaf.service
+
+What it does:
+- Shows whether the service is active, failed, or restarting, plus recent logs.
+
+6) Restart after updates
+Command:
+  sudo systemctl restart dht11adaf.service
+
+What it does:
+- Stops and starts the service in one step. Use this after changing code or run.sh.
+
+7) Stop the service
+Command:
+  sudo systemctl stop dht11adaf.service
+
+What it does:
+- Stops the running service.
+
+8) View live logs
+Command:
+  sudo journalctl -u dht11adaf.service -f
+
+What it does:
+- Streams logs in real time to help with monitoring and troubleshooting.
+
+9) Disable auto-start at boot (optional)
+Command:
+  sudo systemctl disable dht11adaf.service
+
+What it does:
+- Prevents the service from starting automatically on reboot.
+
+Typical first-time setup sequence
+1. sudo cp /home/picam/dht11adaf/dht11adaf.service /etc/systemd/system/
+2. sudo systemctl daemon-reload
+3. sudo systemctl enable dht11adaf.service
+4. sudo systemctl start dht11adaf.service
+5. sudo systemctl status dht11adaf.service
