@@ -69,7 +69,7 @@ async def sensor_loop():
             if clients:
                 await asyncio.gather(*(client.send(message) for client in clients))
             print(f"Sent: {message}")
-        await asyncio.sleep(300)
+        await asyncio.sleep(60)
 
 async def handler(websocket, path=None):
     clients.add(websocket)
@@ -93,4 +93,4 @@ if __name__ == "__main__":
         conn.close()
 
     # The DHT11 needs at least 1-2 seconds between readings
-    time.sleep(300)
+    time.sleep(30)
