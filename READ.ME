@@ -2,6 +2,12 @@ DHT11 Adafruit Service Setup and Usage
 
 This guide explains how to install and manage the dht11adaf systemd service.
 
+Create the venv with:
+  python3 -m venv --system-site-packages dht11adaf
+  cd dht11adaf
+  ./bin/activate
+  pip3 install adafruit-circuitpython-dht adafruit-blinka
+
 Prerequisites
 - The project is located at /home/picam/dht11adaf
 - The service file is at /home/picam/dht11adaf/dht11adaf.service
